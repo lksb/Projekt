@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>New post</h2>
+
+    <form>
+        <label for="genre">Genre:</label>
+        <br>
+        <select name="genre">
+            <option value="games">Games</option>
+            <option value="mobile">Mobile</option>
+            <option value="technik">Technik</option>
+        </select>
+    </form> 
+
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+{% endblock %}
