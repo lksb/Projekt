@@ -3,19 +3,21 @@
 {% block content %}
     <h2>New post</h2>
 
-    <form>
-        <label for="genre">Genre:</label>
-        <br>
-        <select name="genre">
-            <option value="games">Games</option>
-            <option value="mobile">Mobile</option>
-            <option value="technik">Technik</option>
+    <label for="genre">Genre:
+    <div class="custom-select" style="width:200px;">
+        <select>
+            <option value="0">---</option>
+            <option value="1">Games</option>
+            <option value="2">Mobile</option>
+            <option value="3">Technik</option>
         </select>
-    </form> 
+    </div>
+    </label>
+    <br><br>
 
     <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        {{ form.as_p }}        
+    <button type="submit" class="save btn btn-default">Save</button>
     </form>
 
 {% endblock %}

@@ -4,6 +4,8 @@ from .models import Post
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from .forms import PostForm
+from django.shortcuts import render_to_response
+from django.views.generic.edit import CreateView
 
 # Create your views here.
 
