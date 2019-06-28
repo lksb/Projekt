@@ -6,16 +6,18 @@
         <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% endif %}
         <h2>{{ post.title }}</h2>
-        <div class="genre">
-            <p><b>Genre: {{ post.genre }}</b></p>
+        <div class="category">
+            <p><b>Category: {{ post.category }}</b></p>
+        </div>
+        <div class="platform">
+            <p>Platform: {{post.platform }}</p>
         </div>
         <p>{{ post.text|linebreaksbr }}</p>
         <div class="date">
-            <p>created: {{ post.created_date }}</p>
-            <p>published: {{ post.published_date }}</p>
+            <p>published on {{ post.published_date }}</p>
         </div>
         <div class="author">
-            <p><b>posted by {{ post.author }}</b></p>
+            <p><b>by {{ post.author }}</b></p>
         </div>
     </div>
 {% endblock %}

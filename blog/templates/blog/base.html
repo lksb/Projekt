@@ -8,6 +8,7 @@
         <link href='//fonts.googleapis.com/css?family=VT323&display=swap' rel='stylesheet' type='text/css'> 
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
+
     <body>
         <div class="page-header">
             {% if user.is_authenticated %}
@@ -16,12 +17,19 @@
             <h1><a href="/">Gamingblog!</a></h1>
             <h2><a href="/">Aus Leidenschaft am Spiel...</a></h2>
         </div>
-        <div>
+
+        <div class="image">
             <img src="https://www.chacos.com/on/demandware.static/-/Sites-chacos_us-Library/default/dw6141e64c/content/seasonal-content/landing-pages/pacman/2017/08/chco-20170814-desktop-pacman-header-bkgd.jpg" alt="pacman" width="950" height="270"/>
         </div>
-        <div>
+        
+        <div class="eventlink">
+            <h4><a href="{% url 'event_list' %}">Events</a></h4>
+        </div>
+
+        <div class="blog-header">
             <h3><a href="/">Blogeinträge</a></h3>
         </div>
+
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
@@ -30,5 +38,6 @@
                 </div>
             </div>
         </div>
+
     </body>
 </html>

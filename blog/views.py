@@ -7,6 +7,9 @@ from .forms import PostForm
 from django.shortcuts import render_to_response
 from django.views.generic.edit import CreateView
 
+# events
+from .forms import EventForm
+
 # Create your views here.
 
 def post_list(request):
@@ -43,3 +46,40 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+
+# events
+def event_list(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    return render(request, 'blog/event_list.html', {'posts': posts})
+
+def event_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/event_detail.html', {'post': post})
+
+def event_new(request):
+    if request.method == "POST":
+        form = EventForm(request.POST)
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.author = request.user
+            event.published_date = timezone.now()
+            event.save()
+            return redirect('event_detail', pk=post.pk)
+    else:
+        form = EventForm()
+    return render(request, 'blog/event_edit.html', {'form': form})
+
+def event_edit(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = EventForm(request.POST, instance=post)
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.author = request.user
+            event.published_date = timezone.now()
+            event.save()
+            return redirect('event_detail', pk=post.pk)
+    else:
+        form = EventForm(instance=post)
+    return render(request, 'blog/event_edit.html', {'form': form})

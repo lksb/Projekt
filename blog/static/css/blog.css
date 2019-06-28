@@ -15,7 +15,7 @@ body {
 
 .page-header {
     background-color: rgb(8, 7, 65);
-    margin-top: 0;
+    margin-top: 10;
     padding: 20px 20px 20px 40px;
 }
 
@@ -26,7 +26,8 @@ body {
 }
 
 .content {
-    margin-left: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1, h2, h3, h4 {
@@ -35,6 +36,12 @@ h1, h2, h3, h4 {
 
 h3 a {
     color: rgb(153, 6, 6);
+    font-family: 'VT323';
+    font-size: 35pt;
+}
+
+h4 a {
+    color: blue;
     font-family: 'VT323';
     font-size: 35pt;
 }
@@ -60,6 +67,7 @@ h3 a {
 
 .post {
     margin-bottom: 70px;
+    text-align: justify;
 }
 
 .post h2 a, .post h2 a:visited {
@@ -69,4 +77,27 @@ h3 a {
 hr {
     color: rgb(48, 47, 47);
     background: rgb(48, 47, 47);
+}
+
+.image {
+    margin-left: 340px;
+}
+
+.blog-header {
+    margin-left: 340px;
+    
+}
+
+.eventlink {
+    text-align: right;
+    margin-right: 100px;
+    margin-left: 1680px;
+    background-color: greenyellow;
+}
+
+.eventnew {
+    color: blue;
+    font-family: 'VT323';
+    font-size: 25pt;
+    margin-left: 340px;
 }
