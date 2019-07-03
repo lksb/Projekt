@@ -24,17 +24,19 @@
                 <div class="col-md-8">
                     {% block content %}
                         {% for post in posts %}
+                            {% if post.title != "" %}
                             <div class="post">
-                                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-                                <p>{{ post.text|linebreaksbr }}</p>
-                                <div class="date">  
-                                    <p>published on {{ post.published_date }}</p>
+                                    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                                    <p>{{ post.text|linebreaksbr }}</p>
+                                    <div class="date">  
+                                        <p>published on {{ post.published_date }}</p>
+                                    </div>
+                                    <div class="author">
+                                        <p><b>by {{ post.author }}</b></p>
+                                    </div>
+                                    <hr>
                                 </div>
-                                <div class="author">
-                                    <p><b>by {{ post.author }}</b></p>
-                                </div>
-                                <hr>
-                            </div>
+                            {% endif %}        
                         {% endfor %}
                     {% endblock %}
                 </div>

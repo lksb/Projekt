@@ -7,7 +7,6 @@ class PostForm(forms.ModelForm):
          model = Post
          fields = ('category','platform','title', 'text',)
 
-
 #events
 class EventForm(forms.ModelForm):
 

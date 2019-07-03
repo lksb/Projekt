@@ -16,16 +16,20 @@
             <h2><a href="/">Aus Leidenschaft am Spiel...</a></h2>
         </div>  
 
-        <div class="image">
-            <img src="http://www.techfieber.de/images/wp-content/gallery/gamesom-gaming-messe_2/gamescom-gaming-messe-554.jpg"/><img src="https://i.computer-bild.de/imgs/7/6/7/9/0/9/3/Gamescom-555x370-1cd178a7aec1e440.jpg"/>
+        <div class="imageevent">
+            <img src="http://www.techfieber.de/images/wp-content/gallery/gamesom-gaming-messe_2/gamescom-gaming-messe-554.jpg"/><img src="https://i.computer-bild.de/imgs/7/6/7/9/0/9/3/Gamescom-555x370-1cd178a7aec1e440.jpg"/><img src="https://image.redbull.com/rbcom/052/2017-07-24/74f87a1f-79c2-4bf6-891d-314ea06694a3/0010/1/1500/1000/1/das-deutsche-gaming-paradies%3A-die-gamescom%21.jpg" height="370" width="600"/>
         </div>
 
-        <div class="blog-header">
+        <div class="postlink">
+            <h4><a href="{% url 'post_list' %}">>Blogeinträge</a></h4>
+        </div>
+
+        <div class="event-header">
             <h3><a href="{% url 'event_list' %}">Events</a></h3>
         </div>
 
         <div class="eventnew">
-            <a href="{% url 'event_new' %}">New Event</a>
+            <a href="{% url 'event_new' %}">→add a new Event←</a>
         </div>
     
         <div class="content container">
@@ -33,21 +37,22 @@
                 <div class="col-md-8">
                     {% block content %}
                         {% for post in posts %}
-                            <div class="event">
-                                
-                                <h1><a href="{% url 'event_detail' pk=post.pk %}">{{ post.eventname }}</a></h1>
-                                <div class="eventdate">
-                                    <p>Date: {{ post.eventdate }}</p>
+                            {% if post.eventname != "" %}
+                                <div class="event">
+                                    <h1><a href="{% url 'event_detail' pk=post.pk %}">{{ post.eventname }}</a></h1>
+                                    <div class="eventdate">
+                                        <p>Date: {{ post.eventdate }}</p>
+                                    </div>
+                                    <div class="time">
+                                        <p>Time: {{ post.time }}</p>
+                                    </div>
+                                    <div class="location">
+                                        <p>Location: {{ post.location }}</p>
+                                    </div>
+                                    <p>{{ post.description|linebreaksbr }}</p>
+                                    <hr>
                                 </div>
-                                <div class="time">
-                                    <p>Time: {{ post.time }}</p>
-                                </div>
-                                <div class="location">
-                                    <p>Location: {{ post.location }}</p>
-                                </div>
-                                <p>{{ post.description|linebreaksbr }}</p>
-                                <hr>
-                            </div>
+                            {% endif %}
                         {% endfor %}
                     {% endblock %}
                 </div>

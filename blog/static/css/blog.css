@@ -79,25 +79,37 @@ hr {
     background: rgb(48, 47, 47);
 }
 
-.image {
-    margin-left: 340px;
+.imagepost {
+    text-align: center;
+    background-color: black;
 }
 
 .blog-header {
-    margin-left: 340px;
-    
+    text-align: center;
+    background-color: lightblue;
 }
 
 .eventlink {
-    text-align: right;
-    margin-right: 100px;
-    margin-left: 1680px;
-    background-color: greenyellow;
+    color: blue;
+    text-align: center;
 }
 
 .eventnew {
     color: blue;
     font-family: 'VT323';
-    font-size: 25pt;
-    margin-left: 340px;
+    font-size: 27pt;
+    text-align: center;
+}
+
+.event-header {
+    text-align: center;
+    background-color: lightgreen;
+}
+
+.imageevent {
+    text-align:center;
+}
+
+.postlink {
+    text-align:center;
 }
