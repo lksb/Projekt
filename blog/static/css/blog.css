@@ -82,6 +82,8 @@ hr {
 .imagepost {
     text-align: center;
     background-color: black;
+    height:auto;
+    width:auto;
 }
 
 .blog-header {
@@ -108,6 +110,8 @@ hr {
 
 .imageevent {
     text-align:center;
+    height:auto;
+    width:auto;
 }
 
 .postlink {
