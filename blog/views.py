@@ -13,6 +13,13 @@ from .forms import EventForm
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    #filter
+    query = request.GET.get("q")
+    if query:
+        posts = posts.filter(category__icontains=query)
+    query = request.GET.get("qu")
+    if query:
+        posts = posts.filter(platform__icontains=query)
     return render(request, 'blog/post_list.html', {'posts':posts})
 
 def post_detail(request, pk):

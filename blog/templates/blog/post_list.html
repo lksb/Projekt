@@ -12,21 +12,53 @@
         <div class="page-header">
             <h1><a href="/">Gamingblog!</a></h1>
         </div>
-                
+
         <div class="post">
             <h2><a href="">{{ post.title }}</a></h2>
             <p>published: {{ post.published_date }}</p>
             <p>{{ post.text|linebreaksbr }}</p>
         </div>
-        
+
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
                     {% block content %}
-                        {% for post in posts %}
+                            <form method='GET' action=''>
+                                    <p>Filter by category:</p>
+                                    <select name="q">
+                                        <option value!=""></option>
+                                        <option value="Games">Games</option>
+                                        <option value="Mobile">Mobile</option>
+                                        <option value="Tech">Tech</option>
+                                    </select>
+                                <input type='submit' value='Search'/>
+                            </form>
+                            <form method='GET' action=''>
+                                    <p>Filter by platform:</p>
+                                    <select name="qu">
+                                        <option value!=""></option>
+                                        <option value="PC">PC</option>
+                                        <option value="iPhone">iPhone</option>
+                                        <option value="Android">Android</option>
+                                        <option value="Playstation 3">Playstation 3</option>
+                                        <option value="Playstation 4">Playstation 4</option>
+                                        <option value="Xbox One">Xbox One</option>
+                                        <option value="Xbox 360">Xbox 360</option>
+                                        <option value="Nintendo Switch">Nintendo Switch</option>
+                                        <option value="Nintendo Wii U">Nintendo Wii U</option>
+                                        <option value="Nintendo Wii">Nintendo Wii</option>
+                                        <option value="Nintendo 3DS">Nintendo 3DS</option>
+                                        <option value="Nintendo DS">Nintendo DS</option>
+                                        <option value="Playstation Vita">Playstation Vita</option>
+                                    </select>
+                                <input type='submit' value='Search'/>
+                            </form>
+                            {% for post in posts %}
                             {% if post.title != "" %}
                             <div class="post">
                                     <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                                    <p><b>category: {{ post.category }}</p>
+                                    <p>platform: {{post.platform }}</p></b>
                                     <p>{{ post.text|linebreaksbr }}</p>
                                     <div class="date">  
                                         <p>published on {{ post.published_date }}</p>
