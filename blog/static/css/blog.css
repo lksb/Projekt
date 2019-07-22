@@ -82,8 +82,11 @@ hr {
 .imagepost {
     text-align: center;
     background-color: black;
-    height:auto;
-    width:auto;
+}
+
+.responsive {
+    width:50%;
+    height:auto; 
 }
 
 .blog-header {

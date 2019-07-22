@@ -34,8 +34,8 @@ class Post(models.Model):
     platform = models.CharField(max_length=20, choices=platform_choices, default='---')
     #events
     eventname = models.CharField(max_length=200, default='')
-    eventdate = models.DateField("Eventdate (YYYY-MM-DD)", default='2000-01-01')
-    time = models.TimeField("Time (hh:mm:ssss)", default='00:00:0000')
+    eventdate = models.DateField(verbose_name="Eventdate (YYYY-MM-DD)", default='2000-01-01')
+    time = models.TimeField(verbose_name="Time (hh:mm:ssss)", default='00:00:0000')
     location = models.CharField(max_length=50, default='')
     description = models.TextField(default='')
         
